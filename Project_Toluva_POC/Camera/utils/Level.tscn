@@ -1,0 +1,124 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://utils/Tileset.meshlib" type="MeshLibrary" id=1]
+[ext_resource path="res://utils/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://utils/CeilingLight.tscn" type="PackedScene" id=3]
+[ext_resource path="res://utils/Camera.gd" type="Script" id=4]
+[ext_resource path="res://utils/CamArea.gd" type="Script" id=5]
+
+[sub_resource type="Environment" id=1]
+background_mode = 1
+background_color = Color( 0.0235294, 0.0235294, 0.0235294, 1 )
+
+[sub_resource type="BoxShape" id=2]
+
+[sub_resource type="BoxShape" id=3]
+
+[node name="Level" type="Spatial"]
+
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = ExtResource( 1 )
+data = {
+"cells": PoolIntArray( 0, 65524, 2, 1, 65524, 2, 5, 65524, 2, 6, 65524, 2, 7, 65524, 2, 8, 65524, 2, 9, 65524, 2, 65533, 65524, 2, 65534, 65524, 2, 65535, 65524, 2, 65536, 65524, 0, 65537, 65524, 0, 65541, 65524, 0, 65542, 65524, 0, 65543, 65524, 0, 65544, 65524, 0, 65545, 65524, 0, 131069, 65524, 0, 131070, 65524, 0, 131071, 65524, 0, -65536, 65524, 3, -65535, 65524, 3, -65531, 65524, 3, -65530, 65524, 3, -65529, 65524, 3, -65528, 65524, 3, -65527, 65524, 3, -3, 65524, 3, -2, 65524, 3, -1, 65524, 3, 1, 65525, 2, 5, 65525, 2, 9, 65525, 2, 65533, 65525, 2, 65537, 65525, 0, 65541, 65525, 0, 65545, 65525, 0, 131069, 65525, 0, -65536, 65525, 1, -65535, 65525, 3, -65531, 65525, 3, -65530, 65525, 1, -65529, 65525, 1, -65528, 65525, 1, -65527, 65525, 3, -3, 65525, 3, -2, 65525, 1, -1, 65525, 1, 1, 65526, 2, 2, 65526, 2, 3, 65526, 2, 4, 65526, 2, 5, 65526, 2, 9, 65526, 2, 65533, 65526, 2, 65537, 65526, 0, 65538, 65526, 0, 65539, 65526, 0, 65540, 65526, 0, 65541, 65526, 0, 65545, 65526, 0, 131069, 65526, 0, -65536, 65526, 1, -65535, 65526, 3, -65534, 65526, 3, -65533, 65526, 3, -65532, 65526, 3, -65531, 65526, 3, -65530, 65526, 1, -65529, 65526, 1, -65528, 65526, 1, -65527, 65526, 3, -3, 65526, 3, -2, 65526, 1, -1, 65526, 1, 9, 65527, 2, 65533, 65527, 2, 65545, 65527, 0, 131069, 65527, 0, -65536, 65527, 1, -65535, 65527, 1, -65534, 65527, 1, -65533, 65527, 1, -65532, 65527, 1, -65531, 65527, 1, -65530, 65527, 1, -65529, 65527, 1, -65528, 65527, 1, -65527, 65527, -536870909, -3, 65527, 3, -2, 65527, 1, -1, 65527, -536870911, 1, 65528, 2, 2, 65528, 2, 4, 65528, 2, 5, 65528, -536870910, 9, 65528, 2, 65533, 65528, -536870910, 65537, 65528, 0, 65538, 65528, 0, 65540, 65528, 0, 65541, 65528, -536870912, 65545, 65528, -536870912, 131069, 65528, -536870912, -65536, 65528, 1, -65535, 65528, -536870909, -65534, 65528, -536870909, -65533, 65528, 1, -65532, 65528, -536870909, -65531, 65528, -536870909, -65530, 65528, 1, -65529, 65528, -536870911, -65528, 65528, -536870911, -65527, 65528, -536870909, -3, 65528, -536870909, -2, 65528, 1, -1, 65528, 1, 1, 65529, 2, 2, 65529, 2, 4, 65529, 2, 5, 65529, 2, 9, 65529, 2, 65533, 65529, 2, 65537, 65529, 0, 65538, 65529, 0, 65540, 65529, 0, 65541, 65529, 0, 65545, 65529, 0, 131069, 65529, 0, -65536, 65529, 1, -65535, 65529, 3, -65534, 65529, 3, -65533, 65529, 1, -65532, 65529, 3, -65531, 65529, 3, -65530, 65529, 1, -65529, 65529, 1, -65528, 65529, 1, -65527, 65529, 3, -3, 65529, 3, -2, 65529, 1, -1, 65529, 1, 0, 65530, 2, 1, 65530, 2, 2, 65530, 2, 4, 65530, 2, 5, 65530, 2, 6, 65530, 2, 7, 65530, 2, 8, 65530, 2, 9, 65530, 2, 65533, 65530, 2, 65534, 65530, 2, 65535, 65530, 2, 65536, 65530, 0, 65537, 65530, 0, 65538, 65530, 0, 65540, 65530, 0, 65541, 65530, 0, 65542, 65530, 0, 65543, 65530, 0, 65544, 65530, 0, 65545, 65530, 0, 131069, 65530, 0, 131070, 65530, 0, 131071, 65530, 0, -65536, 65530, 3, -65535, 65530, 3, -65534, 65530, 3, -65533, 65530, 1, -65532, 65530, 3, -65531, 65530, 3, -65530, 65530, 3, -65529, 65530, 3, -65528, 65530, 3, -65527, 65530, 3, -3, 65530, 3, -2, 65530, 3, -1, 65530, 3, 0, 65531, 2, 6, 65531, 2, 65536, 65531, 0, 65542, 65531, 0, -65536, 65531, 3, -65535, 65531, 1, -65534, 65531, 1, -65533, 65531, 1, -65532, 65531, 1, -65531, 65531, 1, -65530, 65531, 3, 0, 65532, 2, 6, 65532, 2, 65536, 65532, 0, 65542, 65532, 0, -65536, 65532, 3, -65535, 65532, 1, -65534, 65532, 1, -65533, 65532, 1, -65532, 65532, 1, -65531, 65532, 1, -65530, 65532, 3, 0, 65533, 2, 6, 65533, 2, 65536, 65533, 0, 65542, 65533, 0, -65536, 65533, 3, -65535, 65533, 1, -65534, 65533, 1, -65533, 65533, 1, -65532, 65533, 1, -65531, 65533, 1, -65530, 65533, 3, -65529, 65533, 3, 0, 65534, 2, 6, 65534, 2, 65536, 65534, 0, 65542, 65534, 0, -65536, 65534, 3, -65535, 65534, 1, -65534, 65534, 1, -65533, 65534, 1, -65532, 65534, 1, -65531, 65534, 1, -65530, 65534, 3, 1, 65535, 2, 2, 65535, 2, 3, 65535, 2, 4, 65535, 2, 5, 65535, 2, 65537, 65535, 0, 65538, 65535, 0, 65539, 65535, 0, 65540, 65535, 0, 65541, 65535, 0, -65535, 65535, 3, -65534, 65535, 3, -65533, 65535, 3, -65532, 65535, 3, -65531, 65535, 3 )
+}
+__meta__ = {
+"_editor_clip_": 0,
+"_editor_floor_": Vector3( 0, 1, 0 )
+}
+
+[node name="LightContainer" type="Spatial" parent="GridMap"]
+
+[node name="CeilingLight" parent="GridMap/LightContainer" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 7, 9, -6 )
+spot_range = 11.0
+spot_attenuation = 1.5
+spot_angle = 39.5
+
+[node name="LightContainer2" type="Spatial" parent="GridMap"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -11 )
+
+[node name="CeilingLight" parent="GridMap/LightContainer2" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 7, 9, -6 )
+spot_range = 11.0
+spot_attenuation = 1.5
+spot_angle = 39.5
+
+[node name="LightContainer3" type="Spatial" parent="GridMap"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -11 )
+
+[node name="CeilingLight" parent="GridMap/LightContainer3" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 7, 9, -6 )
+spot_range = 11.0
+spot_attenuation = 1.5
+spot_angle = 39.5
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+transform = Transform( -0.977523, 0, 0.21083, 0, 1, 0, -0.21083, 0, -0.977523, 4, 1.00361, -4 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 1 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 0.866025, 4.14089e-09, -0.5, 0.25, 0.866025, 0.433013, 0.433013, -0.5, 0.75, 2.52295, 4.00361, -2 )
+current = true
+script = ExtResource( 4 )
+
+[node name="CamArea" type="Area" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.104289 )
+script = ExtResource( 5 )
+
+[node name="CollisionShape" type="CollisionShape" parent="CamArea"]
+transform = Transform( 5, 0, 0, 0, 1, 0, 0, 0, 5, 7, 0, -6 )
+shape = SubResource( 2 )
+
+[node name="Camera" type="Camera" parent="CamArea"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 7, 7, -6 )
+
+[node name="CamArea4" type="Area" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -11.4238 )
+script = ExtResource( 5 )
+
+[node name="CollisionShape" type="CollisionShape" parent="CamArea4"]
+transform = Transform( 3, 0, 0, 0, 1, 0, 0, 0, 4, 7, 0, -3.72638 )
+shape = SubResource( 2 )
+
+[node name="Camera" type="Camera" parent="CamArea4"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 7, 7, -6 )
+
+[node name="CamArea2" type="Area" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -12 )
+script = ExtResource( 5 )
+
+[node name="CollisionShape" type="CollisionShape" parent="CamArea2"]
+transform = Transform( 5, 0, 0, 0, 1, 0, 0, 0, 5, 7, 0, -6 )
+shape = SubResource( 2 )
+
+[node name="Camera" type="Camera" parent="CamArea2"]
+transform = Transform( -0.775882, 0.317232, -0.545318, -0.000290287, 0.864199, 0.50315, 0.630878, 0.390543, -0.670424, 5, 5, -9 )
+script = ExtResource( 4 )
+
+[node name="Area" type="Area" parent="CamArea2/Camera"]
+transform = Transform( 1, -1.2604e-08, 1.42253e-08, -9.80893e-09, 1, 1.87988e-08, 1.3364e-08, -9.89335e-08, 1, 2.90536e-07, -4.12082e-07, -8.95572e-07 )
+
+[node name="CollisionShape" type="CollisionShape" parent="CamArea2/Camera/Area"]
+transform = Transform( 1, -5.0553e-09, 1.61143e-08, 1.57712e-08, 1, 5.06044e-09, 6.12416e-09, 6.09855e-08, 1, 3.0917e-07, 2.68221e-07, 1.19209e-07 )
+shape = SubResource( 3 )
+
+[node name="CamArea3" type="Area" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -12 )
+script = ExtResource( 5 )
+
+[node name="CollisionShape" type="CollisionShape" parent="CamArea3"]
+transform = Transform( 5, 0, 0, 0, 1, 0, 0, 0, 5, 7, 0, -6 )
+shape = SubResource( 2 )
+
+[node name="Camera" type="Camera" parent="CamArea3"]
+transform = Transform( -0.994554, 0.0664649, -0.0802742, 0.0598164, 0.994789, 0.0825658, 0.0853436, 0.0773145, -0.993347, 7, 0.978002, -9.68641 )
+script = ExtResource( 4 )
+
+[node name="Area" type="Area" parent="CamArea3/Camera"]
+transform = Transform( 0.825481, -0.23048, 0.515228, -0.00308174, 0.910975, 0.41245, -0.564422, -0.342057, 0.751282, 18.2011, 2.85774, 1.09517 )
+
+[node name="CollisionShape" type="CollisionShape" parent="CamArea3/Camera/Area"]
+transform = Transform( 1, -5.0553e-09, 1.61143e-08, 1.57712e-08, 1, 5.06044e-09, 6.12416e-09, 6.09855e-08, 1, 3.0917e-07, 2.68221e-07, 1.19209e-07 )
+shape = SubResource( 3 )
