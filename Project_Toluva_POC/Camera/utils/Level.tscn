@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://utils/Tileset.meshlib" type="MeshLibrary" id=1]
 [ext_resource path="res://utils/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://utils/CeilingLight.tscn" type="PackedScene" id=3]
 [ext_resource path="res://utils/Camera.gd" type="Script" id=4]
 [ext_resource path="res://utils/CamArea.gd" type="Script" id=5]
+[ext_resource path="res://SHFG Textures/fog1.png" type="Texture" id=6]
 
 [sub_resource type="Environment" id=1]
 background_mode = 1
@@ -15,6 +16,31 @@ background_color = Color( 0.0235294, 0.0235294, 0.0235294, 1 )
 [sub_resource type="BoxShape" id=3]
 
 [sub_resource type="ParticlesMaterial" id=4]
+emission_shape = 1
+emission_sphere_radius = 1.0
+spread = 109.55
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 3.0
+initial_velocity_random = 1.0
+linear_accel = 0.1
+damping = 0.1
+damping_random = 1.0
+scale = 3.3
+scale_random = 0.78
+color = Color( 1, 1, 1, 0 )
+
+[sub_resource type="SpatialMaterial" id=5]
+params_diffuse_mode = 1
+params_blend_mode = 1
+params_depth_draw_mode = 3
+params_line_width = 14.6
+params_point_size = 16.2
+albedo_color = Color( 1, 1, 1, 0 )
+albedo_texture = ExtResource( 6 )
+
+[sub_resource type="QuadMesh" id=6]
+material = SubResource( 5 )
+flip_faces = true
 
 [node name="Level" type="Spatial"]
 
@@ -64,7 +90,7 @@ spot_angle = 39.5
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -11 )
 
 [node name="CeilingLight" parent="GridMap/LightContainer4" instance=ExtResource( 3 )]
-transform = Transform( 0.996472, -0.0402239, 0.0736534, 0, 0.877649, 0.479305, -0.0839213, -0.477614, 0.874553, 15.1786, 4.0899, -1.88914 )
+transform = Transform( 0.996472, -0.0402239, 0.0736534, 0.0276874, 0.986083, 0.163934, -0.0792224, -0.161316, 0.983718, 15.2379, 4.71719, -0.762698 )
 light_energy = 16.0
 spot_range = 30.2
 spot_attenuation = 1.17688
@@ -103,7 +129,7 @@ transform = Transform( 3, 0, 0, 0, 1, 0, 0, 0, 4, 7, 0, -3.72638 )
 shape = SubResource( 2 )
 
 [node name="Camera" type="Camera" parent="CamArea4"]
-transform = Transform( 1, 0, 0, 0, 0.72095, 0.692987, 0, -0.692987, 0.72095, 7.01718, 5.5252, 1.63118 )
+transform = Transform( 0.999989, -0.00344771, -0.00331399, 0.00458163, 0.889289, 0.457324, 0.00137037, -0.457334, 0.889294, 6.98614, 5.49941, 1.78774 )
 
 [node name="CamArea2" type="Area" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -12 )
@@ -145,5 +171,12 @@ shape = SubResource( 3 )
 
 [node name="Particles" type="Particles" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.03301, 1.02024, -29.3923 )
+cast_shadow = 0
+lifetime = 3.67
+preprocess = 229.05
+speed_scale = 0.5
+explosiveness = 0.17
+randomness = 0.15
 visibility_aabb = AABB( -3.19284, -0.592807, -3.44165, 6.38568, 4.84089, 8.27002 )
 process_material = SubResource( 4 )
+draw_pass_1 = SubResource( 6 )
