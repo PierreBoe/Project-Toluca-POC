@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://utils/Tileset.meshlib" type="MeshLibrary" id=1]
 [ext_resource path="res://utils/Player.tscn" type="PackedScene" id=2]
@@ -13,6 +13,8 @@ background_color = Color( 0.0235294, 0.0235294, 0.0235294, 1 )
 [sub_resource type="BoxShape" id=2]
 
 [sub_resource type="BoxShape" id=3]
+
+[sub_resource type="ParticlesMaterial" id=4]
 
 [node name="Level" type="Spatial"]
 
@@ -144,3 +146,4 @@ shape = SubResource( 3 )
 [node name="Particles" type="Particles" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.03301, 1.02024, -29.3923 )
 visibility_aabb = AABB( -3.19284, -0.592807, -3.44165, 6.38568, 4.84089, 8.27002 )
+process_material = SubResource( 4 )
