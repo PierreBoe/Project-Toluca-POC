@@ -1,9 +1,9 @@
 extends Camera
  
-export var turn_speed = 60
-export var follow_dist  = 5
-export var follow = true
-export var follow_speed = 2
+export var turn_speed = 50
+#export var follow_dist  = 5
+#export var follow = true
+#export var follow_speed = 2
  
 var target = null
  
@@ -24,7 +24,7 @@ func _process(delta):
 	var u_dot = to_target.dot(up)
    
 	rotation_degrees.y += turn_speed * -r_dot * delta
-	rotation_degrees.x += turn_speed * u_dot * delta
+	rotation_degrees.x += (turn_speed*.7) * u_dot * delta
  
 func set_target(t):
 	target = t

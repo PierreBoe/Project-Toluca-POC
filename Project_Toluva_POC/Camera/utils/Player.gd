@@ -1,6 +1,6 @@
 extends KinematicBody
  
-const MOVE_SPEED = 5
+const MOVE_SPEED = 4
 const TURN_SPEED = 180
 const GRAVITY = 98
 const MAX_FALL_SPEED = 30
@@ -11,6 +11,7 @@ var grounded = false
 func _physics_process(delta):
 	var move_dir = 0
 	var turn_dir = 0
+	var speed_modifier = 1
 	if Input.is_action_pressed("movement_forward"):
 		move_dir += 1
 	if Input.is_action_pressed("movement_backward"):
@@ -19,9 +20,14 @@ func _physics_process(delta):
 		turn_dir -= 1
 	if Input.is_action_pressed("movement_left"):
 		turn_dir += 1
-   
-	rotation_degrees.y += turn_dir * TURN_SPEED * delta
-	var move_vec = global_transform.basis.z * MOVE_SPEED * move_dir
+	if Input.is_action_pressed("run_modifier"):
+		# it would be probably appropriate to change the animation to "run" here when we get the models
+		speed_modifier = 3
+	if Input.is_action_just_released("run_modifier"):
+		speed_modifier = 1
+	
+	rotation_degrees.y += turn_dir * (TURN_SPEED+(30)*speed_modifier) * delta
+	var move_vec = global_transform.basis.z * (MOVE_SPEED+speed_modifier) * move_dir 
 	move_vec.y = y_velo
 	move_and_slide(move_vec, Vector3(0, 1, 0))
    
