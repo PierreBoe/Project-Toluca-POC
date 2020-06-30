@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://utils/Tileset.meshlib" type="MeshLibrary" id=1]
 [ext_resource path="res://utils/Player.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://utils/Camera.gd" type="Script" id=4]
 [ext_resource path="res://utils/CamArea.gd" type="Script" id=5]
 [ext_resource path="res://SHFG Textures/fog1.png" type="Texture" id=6]
+[ext_resource path="res://utils/CeilingLightColor.gd" type="Script" id=7]
 
 [sub_resource type="Environment" id=1]
 background_mode = 1
@@ -81,8 +82,9 @@ __meta__ = {
 [node name="CeilingLight" parent="GridMap/LightContainer" instance=ExtResource( 3 )]
 transform = Transform( 0.721869, -0.504195, 0.474018, -0.0514057, 0.644007, 0.763291, -0.690118, -0.575363, 0.43897, 11.4969, 4.60659, -2.3948 )
 light_energy = 16.0
-light_indirect_energy = 10.64
-light_specular = 0.85
+light_indirect_energy = 10.15
+light_specular = 0.31
+shadow_bias = -16.0
 spot_range = 11.0
 spot_attenuation = 1.30583
 spot_angle = 60.1
@@ -107,6 +109,7 @@ light_energy = 16.0
 spot_range = 11.0
 spot_attenuation = 1.5
 spot_angle = 39.5
+script = ExtResource( 7 )
 
 [node name="LightContainer4" type="Spatial" parent="GridMap"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -11 )
