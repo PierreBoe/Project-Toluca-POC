@@ -26,6 +26,9 @@ func _physics_process(delta):
 		speed_modifier = 3 #changing the value of speed modifier to allow for run when the key is pressed and hold.
 	if Input.is_action_just_released("run_modifier"):
 		speed_modifier = 1 #run modifier key is released. Speed returns to normal
+	if Input.is_action_pressed("turn_around"):
+		#have to figure that one out
+		pass
 	
 	rotation_degrees.y += turn_dir * (TURN_SPEED+(40)*speed_modifier) * delta #allowing for faster rotation when running
 	var move_vec = global_transform.basis.z * (MOVE_SPEED+speed_modifier) * move_dir 
