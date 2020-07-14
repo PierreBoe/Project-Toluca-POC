@@ -7,12 +7,27 @@ const MAX_FALL_SPEED = 30
  
 var y_velo = 0
 var grounded = false
-var flashlight = true 
+var flashlight = true
+var speed_modifier = 1 #default speed modifier. It should be only changed upon a button press
+
+var turnTimer = Timer.new()
+	#timer = Timer.new()
+	#timer.wait_time = rand_range(0.05,0.1)
+	#timer.connect("timeout", self, "on_timer_timeout")
+	#add_child(timer)
+	#timer.start()
+func _ready():
+	turnTimer.wait_time = 0.2
+	add_child(turnTimer)
+	print(turnTimer.is_stopped())
+	turnTimer.start()
+	print(turnTimer.is_stopped())
 
 func _physics_process(delta):
 	var move_dir = 0
 	var turn_dir = 0
-	var speed_modifier = 1 #default speed modifier. It should be only changed upon a button press
+	
+	
 	
 	if Input.is_action_pressed("movement_forward"):
 		move_dir += 1
@@ -27,9 +42,16 @@ func _physics_process(delta):
 		speed_modifier = 3 #changing the value of speed modifier to allow for run when the key is pressed and hold.
 	if Input.is_action_just_released("run_modifier"):
 		speed_modifier = 1 #run modifier key is released. Speed returns to normal
-	if Input.is_action_pressed("turn_around"):
-		#have to figure that one out
-		pass
+	if Input.is_action_just_released("turn_around"):
+		print(turnTimer)
+		print(turnTimer.is_stopped())
+		print(turnTimer.time_left)
+		
+		if turnTimer.is_stopped() == true:
+			rotation_degrees.y = rotation_degrees.y - 180
+			turnTimer.start()
+		
+		
 	if Input.is_action_just_pressed("flashlight_toggle"):
 		if flashlight == true:
 			get_node("SpotLight").light_energy = 0
