@@ -26,12 +26,14 @@ mesh = SubResource( 3 )
 material/0 = null
 
 [node name="SpotLight" type="SpotLight" parent="."]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.77542, 0 )
-spot_range = 7.0
-spot_angle = 9.40825
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.166447, 1.8617, 0.14115 )
+light_energy = 6.0
+spot_range = 7.95836
+spot_angle = 14.2117
 
 [node name="SpotLight2" type="SpotLight" parent="."]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.77542, 0 )
-spot_range = 6.0
+light_energy = 3.0
+spot_range = 7.29622
 spot_attenuation = 1.62451
-spot_angle = 36.0217
+spot_angle = 39.99

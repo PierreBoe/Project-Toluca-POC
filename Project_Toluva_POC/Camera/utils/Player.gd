@@ -7,7 +7,8 @@ const MAX_FALL_SPEED = 30
  
 var y_velo = 0
 var grounded = false
- 
+var flashlight = true 
+
 func _physics_process(delta):
 	var move_dir = 0
 	var turn_dir = 0
@@ -29,6 +30,15 @@ func _physics_process(delta):
 	if Input.is_action_pressed("turn_around"):
 		#have to figure that one out
 		pass
+	if Input.is_action_just_pressed("flashlight_toggle"):
+		if flashlight == true:
+			get_node("SpotLight").light_energy = 0
+			get_node("SpotLight2").light_energy = 0
+			flashlight = false
+		elif flashlight == false:
+			get_node("SpotLight").light_energy = 6
+			get_node("SpotLight2").light_energy = 4
+			flashlight = true
 	
 	rotation_degrees.y += turn_dir * (TURN_SPEED+(40)*speed_modifier) * delta #allowing for faster rotation when running
 	var move_vec = global_transform.basis.z * (MOVE_SPEED+speed_modifier) * move_dir 

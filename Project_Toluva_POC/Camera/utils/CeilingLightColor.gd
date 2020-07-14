@@ -16,7 +16,6 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	time += delta #time elapsed in ms since delta is in ms
-	
 	red_color = .75+(cos(time)/8)
 	blue_color = .25+(sin(time)/8)
 		
