@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://utils/Level.tscn" type="PackedScene" id=1]
+
+[node name="Main" type="Spatial"]
+
+[node name="ViewportContainer" type="ViewportContainer" parent="."]
+margin_right = 1280.0
+margin_bottom = 720.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Level" parent="ViewportContainer" instance=ExtResource( 1 )]

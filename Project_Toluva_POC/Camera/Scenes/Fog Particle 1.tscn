@@ -1,0 +1,66 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://SHFG Textures/fog1.png" type="Texture" id=1]
+
+[sub_resource type="Curve" id=4]
+_data = [ Vector2( 0, 0 ), 0.0, 2.7044, 0, 0, Vector2( 0.21519, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.917722, 0.620454 ), -1.70996, -1.70996, 0, 0, Vector2( 1, 0 ), -0.939974, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=5]
+curve = SubResource( 4 )
+
+[sub_resource type="ParticlesMaterial" id=6]
+lifetime_randomness = 0.72
+emission_shape = 2
+emission_box_extents = Vector3( 1, 1, 1 )
+direction = Vector3( 0, 0, 0 )
+spread = 78.51
+flatness = 0.18
+gravity = Vector3( 0, -0.3, 0 )
+initial_velocity = 3.0
+initial_velocity_random = 1.0
+linear_accel = 0.07
+tangential_accel = 2.3
+tangential_accel_random = 0.39
+damping = 10.44
+damping_random = 0.8
+angle = -74.5
+angle_random = 0.45
+scale = 30.0
+scale_random = 0.88
+scale_curve = SubResource( 5 )
+color = Color( 1, 1, 1, 0.384314 )
+
+[sub_resource type="SpatialMaterial" id=7]
+flags_transparent = true
+vertex_color_use_as_albedo = true
+params_diffuse_mode = 1
+params_specular_mode = 4
+params_blend_mode = 1
+params_depth_draw_mode = 3
+params_line_width = 22.9
+params_point_size = 16.8
+params_billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+albedo_color = Color( 1, 1, 1, 0.192157 )
+albedo_texture = ExtResource( 1 )
+metallic_specular = 0.27
+
+[sub_resource type="QuadMesh" id=8]
+material = SubResource( 7 )
+flip_faces = true
+
+[node name="Particles" type="Particles"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.72297, 4.60876, -34.4663 )
+cast_shadow = 0
+amount = 38
+lifetime = 30.32
+preprocess = 4.2
+speed_scale = 1.2
+explosiveness = 0.49
+randomness = 0.34
+visibility_aabb = AABB( -12.181, -5.86931, -4.85679, 26.235, 15.764, 13.1413 )
+draw_order = 2
+process_material = SubResource( 6 )
+draw_pass_1 = SubResource( 8 )
